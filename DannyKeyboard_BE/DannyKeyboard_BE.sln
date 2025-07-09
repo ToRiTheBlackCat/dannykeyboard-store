@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{772790E5-A70E-4887-B661-7042D565CC64}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DannyKeyboard.Domain", "DannyKeyboard.Domain\DannyKeyboard.Domain.csproj", "{13B02951-0266-4DE2-88E8-3F4785308C45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DannyKeyboard.Application", "DannyKeyboard.Application\DannyKeyboard.Application.csproj", "{7103CCE0-DAE3-4771-9E2A-A10F0178DCF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DannyKeyboard.Infrastructure", "DannyKeyboard.Infrastructure\DannyKeyboard.Infrastructure.csproj", "{47AD7FCD-1F12-40D7-AF41-7AEB427E242E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DannyKeyboard.API", "DannyKeyboard.API\DannyKeyboard.API.csproj", "{82C3999E-2FBA-454B-AEBD-E72DBD7AC764}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DannyKeyboard.Presentation", "DannyKeyboard.Presentation\DannyKeyboard.Presentation.csproj", "{3C3A897F-5602-4AAD-A952-AE39F916649D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13B02951-0266-4DE2-88E8-3F4785308C45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13B02951-0266-4DE2-88E8-3F4785308C45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13B02951-0266-4DE2-88E8-3F4785308C45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13B02951-0266-4DE2-88E8-3F4785308C45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7103CCE0-DAE3-4771-9E2A-A10F0178DCF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7103CCE0-DAE3-4771-9E2A-A10F0178DCF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7103CCE0-DAE3-4771-9E2A-A10F0178DCF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7103CCE0-DAE3-4771-9E2A-A10F0178DCF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47AD7FCD-1F12-40D7-AF41-7AEB427E242E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47AD7FCD-1F12-40D7-AF41-7AEB427E242E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47AD7FCD-1F12-40D7-AF41-7AEB427E242E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47AD7FCD-1F12-40D7-AF41-7AEB427E242E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82C3999E-2FBA-454B-AEBD-E72DBD7AC764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C3999E-2FBA-454B-AEBD-E72DBD7AC764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82C3999E-2FBA-454B-AEBD-E72DBD7AC764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C3999E-2FBA-454B-AEBD-E72DBD7AC764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C3A897F-5602-4AAD-A952-AE39F916649D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C3A897F-5602-4AAD-A952-AE39F916649D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C3A897F-5602-4AAD-A952-AE39F916649D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C3A897F-5602-4AAD-A952-AE39F916649D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13B02951-0266-4DE2-88E8-3F4785308C45} = {772790E5-A70E-4887-B661-7042D565CC64}
+		{7103CCE0-DAE3-4771-9E2A-A10F0178DCF0} = {772790E5-A70E-4887-B661-7042D565CC64}
+		{47AD7FCD-1F12-40D7-AF41-7AEB427E242E} = {772790E5-A70E-4887-B661-7042D565CC64}
+		{82C3999E-2FBA-454B-AEBD-E72DBD7AC764} = {772790E5-A70E-4887-B661-7042D565CC64}
+		{3C3A897F-5602-4AAD-A952-AE39F916649D} = {772790E5-A70E-4887-B661-7042D565CC64}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25229788-EBE7-4F62-8197-6C02FFC048ED}
+	EndGlobalSection
+EndGlobal
