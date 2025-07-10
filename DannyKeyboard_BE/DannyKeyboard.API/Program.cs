@@ -1,6 +1,6 @@
 using DannyKeyboard.Application;
 using DannyKeyboard.Infrastructure;
-using DannyKeyboard.Presentation;
+using DannyKeyboard.Infrastructure.Base;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,11 +14,13 @@ builder.Services.AddSwaggerGen();
 
 builder.Services
     .AddApplication()
-    .AddInfrastructure()
-    .AddPresentation();
+    .AddInfrastructure(builder.Configuration);
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 
-builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
+//builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
+builder.Host.UseSerilog();
 
 var app = builder.Build();
 

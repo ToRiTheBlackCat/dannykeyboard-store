@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DannyKeyboard.Infrastructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DannyKeyboard.API", "DannyKeyboard.API\DannyKeyboard.API.csproj", "{82C3999E-2FBA-454B-AEBD-E72DBD7AC764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DannyKeyboard.Presentation", "DannyKeyboard.Presentation\DannyKeyboard.Presentation.csproj", "{3C3A897F-5602-4AAD-A952-AE39F916649D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DannyKeyboard.Tests", "DannyKeyboard.Tests\DannyKeyboard.Tests.csproj", "{8DE01079-BCC9-41C5-AEFF-17FD4E46D03E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,10 @@ Global
 		{82C3999E-2FBA-454B-AEBD-E72DBD7AC764}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82C3999E-2FBA-454B-AEBD-E72DBD7AC764}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82C3999E-2FBA-454B-AEBD-E72DBD7AC764}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C3A897F-5602-4AAD-A952-AE39F916649D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C3A897F-5602-4AAD-A952-AE39F916649D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C3A897F-5602-4AAD-A952-AE39F916649D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C3A897F-5602-4AAD-A952-AE39F916649D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE01079-BCC9-41C5-AEFF-17FD4E46D03E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE01079-BCC9-41C5-AEFF-17FD4E46D03E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE01079-BCC9-41C5-AEFF-17FD4E46D03E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE01079-BCC9-41C5-AEFF-17FD4E46D03E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,7 +50,7 @@ Global
 		{7103CCE0-DAE3-4771-9E2A-A10F0178DCF0} = {772790E5-A70E-4887-B661-7042D565CC64}
 		{47AD7FCD-1F12-40D7-AF41-7AEB427E242E} = {772790E5-A70E-4887-B661-7042D565CC64}
 		{82C3999E-2FBA-454B-AEBD-E72DBD7AC764} = {772790E5-A70E-4887-B661-7042D565CC64}
-		{3C3A897F-5602-4AAD-A952-AE39F916649D} = {772790E5-A70E-4887-B661-7042D565CC64}
+		{8DE01079-BCC9-41C5-AEFF-17FD4E46D03E} = {772790E5-A70E-4887-B661-7042D565CC64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {25229788-EBE7-4F62-8197-6C02FFC048ED}
