@@ -18,6 +18,8 @@ namespace DannyKeyboard.Infrastructure.Base
 
         #region Register_Repo
         public IAboutUsRepository AboutUsRepo { get; }
+        public IUserRepository UserRepo { get; }
+
 
         #endregion
 
@@ -28,6 +30,7 @@ namespace DannyKeyboard.Infrastructure.Base
 
             #region Register_Repo
             AboutUsRepo = new AboutUsRepository(_context);
+            UserRepo = new UserRepository(_context);
             #endregion
         }
 

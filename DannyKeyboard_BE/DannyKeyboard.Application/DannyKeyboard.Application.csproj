@@ -15,4 +15,8 @@
     <ProjectReference Include="..\DannyKeyboard.Domain\DannyKeyboard.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
+
 </Project>

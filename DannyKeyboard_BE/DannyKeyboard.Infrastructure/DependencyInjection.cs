@@ -15,9 +15,6 @@ namespace DannyKeyboard.Infrastructure
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             #endregion
 
-            #region Register_Repos
-
-            #endregion
 
             return services;
         }
