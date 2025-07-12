@@ -292,6 +292,8 @@ __pycache__/
 # Optional: Ignore environment-specific secrets
 appsettings.*.json
 !appsettings.json
+appsettings*.json
+
 
 # JWT or runtime temp data (if stored)
 *.token.json

@@ -1,6 +1,8 @@
-﻿using DannyKeyboard.Application.DTOs.User;
+﻿using DannyKeyboard.Application.Common;
+using DannyKeyboard.Application.DTOs.User;
 using DannyKeyboard.Application.Mappers;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +14,12 @@ namespace DannyKeyboard.Application.Features.User.Command
     public class LoginHandler : IRequestHandler<LoginCommand, LoginResponseDto>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IConfiguration _configure;
 
-        public LoginHandler(IUnitOfWork unitOfWork)
+        public LoginHandler(IUnitOfWork unitOfWork, IConfiguration configure)
         {
             _unitOfWork = unitOfWork;
+            _configure = configure;
         }
 
         public async Task<LoginResponseDto> Handle(LoginCommand request, CancellationToken cancellationToken)
@@ -24,7 +28,9 @@ namespace DannyKeyboard.Application.Features.User.Command
             {
                 await _unitOfWork.BeginTransactionAsync();
 
-                var foundUser = await _unitOfWork.UserRepo.GetOneByEmailAndPass(request.Dto.Email, request.Dto.Password);
+                var hashedPassword = Sha256Encoding.ComputeSHA256Hash(request.Dto.Password + _configure["SecretString"]);
+
+                var foundUser = await _unitOfWork.UserRepo.GetOneByEmailAndPass(request.Dto.Email, hashedPassword);
 
                 return new LoginResponseDto();
 
