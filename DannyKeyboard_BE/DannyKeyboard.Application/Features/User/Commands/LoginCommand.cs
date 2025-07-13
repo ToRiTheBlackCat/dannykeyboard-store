@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DannyKeyboard.Application.Features.User.Command
+namespace DannyKeyboard.Application.Features.User.Commands
 {
     public class LoginCommand : IRequest<LoginResponseDto>
     {
