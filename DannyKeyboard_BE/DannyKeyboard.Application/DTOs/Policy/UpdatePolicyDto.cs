@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DannyKeyboard.Application.DTOs.AboutUs
+namespace DannyKeyboard.Application.DTOs.Policy
 {
-    public class UpdateAboutUsDto
+    public class UpdatePolicyDto
     {
         [Required]
-        public int AboutUsId { get; set; }
+        public int PolicyId { get; set; }
         [Required]
-        public string Detail { get; set; } = string.Empty;
+        public string PolicyName { get; set; } = string.Empty;
     }
 }

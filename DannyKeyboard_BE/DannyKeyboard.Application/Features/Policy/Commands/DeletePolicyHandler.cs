@@ -1,35 +1,36 @@
-﻿using MediatR;
+﻿using DannyKeyboard.Application.Features.AboutUs.Commands;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DannyKeyboard.Application.Features.AboutUs.Commands
+namespace DannyKeyboard.Application.Features.Policy.Commands
 {
-    public class DeleteAboutUsHandler : IRequestHandler<DeleteAboutUsCommand, bool>
+    public class DeletePolicyHandler : IRequestHandler<DeletePolicyCommand, bool>
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteAboutUsHandler(IUnitOfWork unitOfWork)
+        public DeletePolicyHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<bool> Handle(DeleteAboutUsCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeletePolicyCommand request, CancellationToken cancellationToken)
         {
             try
             {
                 await _unitOfWork.BeginTransactionAsync();
 
-                var aboutUs = await _unitOfWork.AboutUsRepo.GetOne(request.Id);
-                if (aboutUs == null)
+                var policy = await _unitOfWork.PolicyRepo.GetOne(request.Id);
+                if (policy == null)
                 {
                     await _unitOfWork.RollbackTransactionAsync();
                     return false;
                 }
 
-                _unitOfWork.AboutUsRepo.Delete(aboutUs);
+                _unitOfWork.PolicyRepo.Delete(policy);
                 await _unitOfWork.CommitTransactionAsync();
 
                 return true;

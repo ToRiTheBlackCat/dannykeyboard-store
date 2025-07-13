@@ -1,5 +1,5 @@
 ﻿using DannyKeyboard.Application.DTOs.User;
-using DannyKeyboard.Application.Features.User.Command;
+using DannyKeyboard.Application.Features.User.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

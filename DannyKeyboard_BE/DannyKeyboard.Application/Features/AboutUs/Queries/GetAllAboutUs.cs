@@ -23,6 +23,10 @@ namespace DannyKeyboard.Application.Features.AboutUs.Queries
         public async Task<List<ListAboutUsDto>> Handle(GetAllAboutUsQuery request, CancellationToken cancellationToken)
         {
             var list = (await _unitOfWork.AboutUsRepo.GetAll()).ToList();
+            if(list.Count == 0)
+            {
+                return new List<ListAboutUsDto>();
+            }
 
             return AboutUsMapper.ToListAboutUsDto(list);
         }

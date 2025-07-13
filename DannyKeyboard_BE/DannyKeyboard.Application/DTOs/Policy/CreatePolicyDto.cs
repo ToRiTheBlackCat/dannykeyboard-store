@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DannyKeyboard.Application.DTOs.AboutUs
+namespace DannyKeyboard.Application.DTOs.Policy
 {
-    public class CreateAboutUsDto
+    public class CreatePolicyDto
     {
         [Required]
-        public string Detail { get; set; } = string.Empty;
+        public string PolicyName { get; set; } = string.Empty;
     }
 }

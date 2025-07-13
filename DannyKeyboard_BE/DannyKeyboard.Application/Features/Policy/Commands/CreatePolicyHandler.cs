@@ -6,30 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DannyKeyboard.Application.Features.AboutUs.Commands
+namespace DannyKeyboard.Application.Features.Policy.Commands
 {
-    public class UpdateAboutUsHandler : IRequestHandler<UpdateAboutUsCommand, bool>
+    public class CreatePolicyHandler : IRequestHandler<CreatePolicyCommand, bool>
     {
         private readonly IUnitOfWork _unitOfWork;
-
-        public UpdateAboutUsHandler(IUnitOfWork unitOfWork)
+        public CreatePolicyHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<bool> Handle(UpdateAboutUsCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(CreatePolicyCommand request, CancellationToken cancellationToken)
         {
             try
             {
                 await _unitOfWork.BeginTransactionAsync();
 
-                var updateAboutUs = AboutUsMapper.ToAboutUs(request.Dto);
-                if (updateAboutUs == null)
-                {
-                    return false;
-                }
-
-                _unitOfWork.AboutUsRepo.Update(updateAboutUs);
+                var newPolicy = PolicyMapper.ToPolicy(request.Dto);
+                await _unitOfWork.PolicyRepo.Insert(newPolicy);
                 await _unitOfWork.CommitTransactionAsync();
 
                 return true;

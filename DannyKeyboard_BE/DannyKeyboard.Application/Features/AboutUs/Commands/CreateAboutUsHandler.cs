@@ -25,8 +25,13 @@ namespace DannyKeyboard.Application.Features.AboutUs.Commands
             {
                 await _unitOfWork.BeginTransactionAsync();
 
-                var newItem = AboutUsMapper.ToAboutUs(request.Dto);
-                await _unitOfWork.AboutUsRepo.Insert(newItem);
+                var newAboutUs = AboutUsMapper.ToAboutUs(request.Dto);
+                if (newAboutUs == null)
+                {
+                    return false;
+                }
+
+                await _unitOfWork.AboutUsRepo.Insert(newAboutUs);
                 await _unitOfWork.CommitTransactionAsync();
 
                 return true;
