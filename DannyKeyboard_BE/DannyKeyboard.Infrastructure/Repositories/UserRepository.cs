@@ -20,9 +20,15 @@ namespace DannyKeyboard.Infrastructure.Repositories
         public async Task<User?> GetOneByEmailAndPass(string email, string password)
         {
             return await _context.Users
-                .FirstOrDefaultAsync(x => x.Email.Equals(email) 
-                                  && x.Password.Equals(password) 
+                .Include(x => x.Role)
+                .FirstOrDefaultAsync(x => x.Email.Equals(email)
+                                  && x.Password.Equals(password)
                                   && x.IsActive);
+        }
+
+        public void UpdateUser(User user)
+        {
+            _context.Users.Update(user);
         }
     }
 }

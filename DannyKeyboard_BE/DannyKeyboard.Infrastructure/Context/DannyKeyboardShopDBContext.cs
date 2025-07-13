@@ -83,7 +83,7 @@ public partial class DannyKeyboardShopDBContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<AboutU>(entity =>
+        modelBuilder.Entity<AboutUs>(entity =>
         {
             entity.HasKey(e => e.AboutUsId);
 

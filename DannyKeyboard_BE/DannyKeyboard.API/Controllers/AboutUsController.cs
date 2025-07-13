@@ -2,7 +2,6 @@
 using DannyKeyboard.Application.Features.AboutUs.Commands;
 using DannyKeyboard.Application.Features.AboutUs.Queries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DannyKeyboard.API.Controllers

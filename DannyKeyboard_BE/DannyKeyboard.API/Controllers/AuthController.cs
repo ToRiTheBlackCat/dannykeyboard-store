@@ -1,9 +1,6 @@
-﻿using DannyKeyboard.Application.DTOs.AboutUs;
-using DannyKeyboard.Application.DTOs.User;
-using DannyKeyboard.Application.Features.AboutUs.Commands;
+﻿using DannyKeyboard.Application.DTOs.User;
 using DannyKeyboard.Application.Features.User.Command;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DannyKeyboard.API.Controllers
