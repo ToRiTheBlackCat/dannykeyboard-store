@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class Category
 {
@@ -12,5 +12,6 @@ public partial class Category
     public string CategoryName { get; set; }
 
     public bool IsActive { get; set; }
+
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

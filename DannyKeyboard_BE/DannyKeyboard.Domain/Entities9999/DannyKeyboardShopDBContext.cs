@@ -2,24 +2,18 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using DannyKeyboard.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
-namespace DannyKeyboard.Infrastructure.Context;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class DannyKeyboardShopDBContext : DbContext
 {
-    public DannyKeyboardShopDBContext()
-    {
-    }
-
     public DannyKeyboardShopDBContext(DbContextOptions<DannyKeyboardShopDBContext> options)
         : base(options)
     {
     }
 
-    public virtual DbSet<AboutUs> AboutUs { get; set; }
+    public virtual DbSet<AboutU> AboutUs { get; set; }
 
     public virtual DbSet<Brand> Brands { get; set; }
 
@@ -76,10 +70,6 @@ public partial class DannyKeyboardShopDBContext : DbContext
     public virtual DbSet<TransactionHistory> TransactionHistories { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
-
-    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-    //        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-UMGO1RR\\MSSQLSERVER01;Initial Catalog=DannyKeyboardShopDB;User ID=sa;Password=12345;Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

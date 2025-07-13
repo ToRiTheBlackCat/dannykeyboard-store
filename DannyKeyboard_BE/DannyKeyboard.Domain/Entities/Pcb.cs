@@ -16,4 +16,7 @@ public partial class Pcb
     public string Led { get; set; }
 
     public bool IsHotSwapping { get; set; }
+    public virtual ICollection<Keyboard> Keyboards { get; set; } = new List<Keyboard>();
+
+    public virtual Product PcbNavigation { get; set; }
 }

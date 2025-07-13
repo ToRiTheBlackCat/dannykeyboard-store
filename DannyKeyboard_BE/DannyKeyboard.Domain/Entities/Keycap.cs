@@ -16,4 +16,7 @@ public partial class Keycap
     public string Material { get; set; }
 
     public bool IsLedThrough { get; set; }
+    public virtual ICollection<Keyboard> Keyboards { get; set; } = new List<Keyboard>();
+
+    public virtual Product KeycapNavigation { get; set; }
 }

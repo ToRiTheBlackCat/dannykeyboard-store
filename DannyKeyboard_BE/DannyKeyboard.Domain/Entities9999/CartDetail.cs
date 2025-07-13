@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class CartDetail
 {
@@ -16,6 +16,7 @@ public partial class CartDetail
     public int Quantity { get; set; }
 
     public decimal UnitPrice { get; set; }
+
     public virtual Cart Cart { get; set; }
 
     public virtual Product Product { get; set; }

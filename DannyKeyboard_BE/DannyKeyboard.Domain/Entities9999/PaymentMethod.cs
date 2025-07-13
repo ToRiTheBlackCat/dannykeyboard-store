@@ -3,12 +3,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class PaymentMethod
 {
     public int PaymentMethodId { get; set; }
 
     public string PaymentMethodName { get; set; }
+
     public virtual ICollection<TransactionHistory> TransactionHistories { get; set; } = new List<TransactionHistory>();
 }

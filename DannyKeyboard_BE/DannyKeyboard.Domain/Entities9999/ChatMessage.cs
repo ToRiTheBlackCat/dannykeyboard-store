@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class ChatMessage
 {
@@ -18,6 +18,7 @@ public partial class ChatMessage
     public string MessageText { get; set; }
 
     public DateTime SendAt { get; set; }
+
     public virtual ChatConversation Conversation { get; set; }
 
     public virtual User Sender { get; set; }

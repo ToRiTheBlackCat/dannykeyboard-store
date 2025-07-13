@@ -3,18 +3,21 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
-public partial class Stabilizer
+public partial class Plate
 {
-    public string StabilizerId { get; set; }
+    public string PlateId { get; set; }
 
     public string Images { get; set; }
 
-    public string Size { get; set; }
+    public string PlateType { get; set; }
 
-    public string Material { get; set; }
+    public string TypeDescription { get; set; }
+
+    public bool IsScrewing { get; set; }
+
     public virtual ICollection<Keyboard> Keyboards { get; set; } = new List<Keyboard>();
 
-    public virtual Product StabilizerNavigation { get; set; }
+    public virtual Product PlateNavigation { get; set; }
 }

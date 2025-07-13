@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class ChatConversation
 {
@@ -16,6 +16,7 @@ public partial class ChatConversation
     public string OrderId { get; set; }
 
     public DateTime CreatedAt { get; set; }
+
     public virtual ICollection<ChatMessage> ChatMessages { get; set; } = new List<ChatMessage>();
 
     public virtual Customer Customer { get; set; }

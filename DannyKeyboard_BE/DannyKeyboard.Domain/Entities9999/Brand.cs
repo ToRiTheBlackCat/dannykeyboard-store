@@ -3,14 +3,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
-public partial class Category
+public partial class Brand
 {
-    public int CategoryId { get; set; }
+    public int BrandId { get; set; }
 
-    public string CategoryName { get; set; }
+    public string BrandName { get; set; }
 
     public bool IsActive { get; set; }
+
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

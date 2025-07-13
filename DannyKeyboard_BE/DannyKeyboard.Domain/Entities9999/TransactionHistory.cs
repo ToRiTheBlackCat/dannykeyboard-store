@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class TransactionHistory
 {
@@ -18,6 +18,7 @@ public partial class TransactionHistory
     public int PaymentMethodId { get; set; }
 
     public DateOnly PaymentDate { get; set; }
+
     public virtual Customer Customer { get; set; }
 
     public virtual Order Order { get; set; }

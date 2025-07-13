@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class Keyboard
 {
@@ -22,6 +22,7 @@ public partial class Keyboard
     public string Pcbid { get; set; }
 
     public string PlateId { get; set; }
+
     public virtual Case Case { get; set; }
 
     public virtual Product KeyboardNavigation { get; set; }

@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class Switch
 {
@@ -24,6 +24,7 @@ public partial class Switch
     public string Material { get; set; }
 
     public bool IsLedThrough { get; set; }
+
     public virtual ICollection<Keyboard> Keyboards { get; set; } = new List<Keyboard>();
 
     public virtual Product SwitchNavigation { get; set; }

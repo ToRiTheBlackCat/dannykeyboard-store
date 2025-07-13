@@ -16,4 +16,7 @@ public partial class Plate
     public string TypeDescription { get; set; }
 
     public bool IsScrewing { get; set; }
+    public virtual ICollection<Keyboard> Keyboards { get; set; } = new List<Keyboard>();
+
+    public virtual Product PlateNavigation { get; set; }
 }

@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class StaffSchedule
 {
@@ -20,6 +20,7 @@ public partial class StaffSchedule
     public bool IsPresent { get; set; }
 
     public string Note { get; set; }
+
     public virtual Shift Shift { get; set; }
 
     public virtual Staff Staff { get; set; }

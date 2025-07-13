@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class User
 {
@@ -24,6 +24,7 @@ public partial class User
     public DateTime? RefreshTokenExpiryTime { get; set; }
 
     public bool IsActive { get; set; }
+
     public virtual ICollection<ChatMessage> ChatMessages { get; set; } = new List<ChatMessage>();
 
     public virtual Customer Customer { get; set; }

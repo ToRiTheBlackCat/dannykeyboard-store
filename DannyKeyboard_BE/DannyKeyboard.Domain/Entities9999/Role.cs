@@ -3,12 +3,13 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class Role
 {
     public int RoleId { get; set; }
 
     public string RoleName { get; set; }
+
     public virtual ICollection<User> Users { get; set; } = new List<User>();
 }

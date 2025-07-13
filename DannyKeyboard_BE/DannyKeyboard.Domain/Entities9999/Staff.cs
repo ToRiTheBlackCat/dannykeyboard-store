@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class Staff
 {
@@ -16,6 +16,7 @@ public partial class Staff
     public string Phone { get; set; }
 
     public DateOnly Dob { get; set; }
+
     public virtual ICollection<ChatConversation> ChatConversations { get; set; } = new List<ChatConversation>();
 
     public virtual User StaffNavigation { get; set; }

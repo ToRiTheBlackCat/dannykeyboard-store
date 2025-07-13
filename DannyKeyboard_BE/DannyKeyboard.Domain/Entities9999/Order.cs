@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class Order
 {
@@ -26,6 +26,7 @@ public partial class Order
     public string Note { get; set; }
 
     public int Status { get; set; }
+
     public virtual Cart Cart { get; set; }
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();

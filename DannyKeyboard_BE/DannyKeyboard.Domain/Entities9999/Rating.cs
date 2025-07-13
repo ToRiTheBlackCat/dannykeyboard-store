@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class Rating
 {
@@ -18,5 +18,6 @@ public partial class Rating
     public string Comment { get; set; }
 
     public DateTime CreatedDate { get; set; }
+
     public virtual Order Order { get; set; }
 }

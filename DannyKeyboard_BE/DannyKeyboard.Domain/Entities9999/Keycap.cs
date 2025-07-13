@@ -3,18 +3,21 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
-public partial class Stabilizer
+public partial class Keycap
 {
-    public string StabilizerId { get; set; }
+    public string KeycapId { get; set; }
 
     public string Images { get; set; }
 
-    public string Size { get; set; }
+    public string KeycapProfile { get; set; }
 
     public string Material { get; set; }
+
+    public bool IsLedThrough { get; set; }
+
     public virtual ICollection<Keyboard> Keyboards { get; set; } = new List<Keyboard>();
 
-    public virtual Product StabilizerNavigation { get; set; }
+    public virtual Product KeycapNavigation { get; set; }
 }

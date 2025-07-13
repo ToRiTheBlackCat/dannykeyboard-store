@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class Shift
 {
@@ -14,5 +14,6 @@ public partial class Shift
     public TimeOnly StartTime { get; set; }
 
     public TimeOnly EndTime { get; set; }
+
     public virtual ICollection<StaffSchedule> StaffSchedules { get; set; } = new List<StaffSchedule>();
 }

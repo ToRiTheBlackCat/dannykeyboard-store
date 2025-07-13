@@ -12,4 +12,5 @@ public partial class Brand
     public string BrandName { get; set; }
 
     public bool IsActive { get; set; }
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

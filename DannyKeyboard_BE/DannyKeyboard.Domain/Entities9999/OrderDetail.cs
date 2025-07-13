@@ -3,20 +3,21 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
-public partial class CartDetail
+public partial class OrderDetail
 {
-    public int CartDetailId { get; set; }
+    public string OrderDetailId { get; set; }
 
-    public int CartId { get; set; }
+    public string OrderId { get; set; }
 
     public string ProductId { get; set; }
 
     public int Quantity { get; set; }
 
     public decimal UnitPrice { get; set; }
-    public virtual Cart Cart { get; set; }
+
+    public virtual Order Order { get; set; }
 
     public virtual Product Product { get; set; }
 }

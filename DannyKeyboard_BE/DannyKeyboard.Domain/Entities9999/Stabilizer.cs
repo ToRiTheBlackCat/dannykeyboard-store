@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DannyKeyboard.Domain.Entities;
+namespace DannyKeyboard.Domain.Entities9999;
 
 public partial class Stabilizer
 {
@@ -14,6 +14,7 @@ public partial class Stabilizer
     public string Size { get; set; }
 
     public string Material { get; set; }
+
     public virtual ICollection<Keyboard> Keyboards { get; set; } = new List<Keyboard>();
 
     public virtual Product StabilizerNavigation { get; set; }
