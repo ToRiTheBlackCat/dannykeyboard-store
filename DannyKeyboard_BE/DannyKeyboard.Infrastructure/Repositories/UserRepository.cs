@@ -17,6 +17,15 @@ namespace DannyKeyboard.Infrastructure.Repositories
         {
             _context = context;
         }
+
+        public async Task<User?> GetOneByEmail(string email)
+        {
+            return await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Email.Equals(email)
+                                  && x.IsActive);
+        }
+
         public async Task<User?> GetOneByEmailAndPass(string email, string password)
         {
             return await _context.Users

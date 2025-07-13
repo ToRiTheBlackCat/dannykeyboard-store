@@ -85,6 +85,8 @@ builder.Services
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<JwtAuthentication>();
+builder.Services.AddScoped<EmailSender>();
+
 
 
 
