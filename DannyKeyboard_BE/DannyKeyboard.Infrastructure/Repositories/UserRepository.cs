@@ -26,6 +26,15 @@ namespace DannyKeyboard.Infrastructure.Repositories
                                   && x.IsActive);
         }
 
+        public async Task<User?> GetOneByRefreshToken(string refreshToken)
+        {
+            return await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.RefreshToken.Equals(refreshToken)
+                                  && DateTime.UtcNow <= x.RefreshTokenExpiryTime
+                                  && x.IsActive);
+        }
+
         public void UpdateUser(User user)
         {
             _context.Users.Update(user);

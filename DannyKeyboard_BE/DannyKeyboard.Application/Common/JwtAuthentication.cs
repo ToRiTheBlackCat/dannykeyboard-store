@@ -1,4 +1,5 @@
-﻿using DannyKeyboard.Domain.Entities;
+﻿using DannyKeyboard.Application.DTOs.Token;
+using DannyKeyboard.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -53,16 +54,17 @@ namespace DannyKeyboard.Application.Common
             return Convert.ToBase64String(bytes);
         }
 
-        //public RefreshTokenResponse RefreshTokenAsync(User user)
-        //{
-        //    var newAccessToken = GenerateAccessToken(user);
-        //    var newRefreshToken = GenerateRefreshToken();
+        public RefreshTokenResponseDto RefreshTokenAsync(User user)
+        {
+            var newAccessToken = GenerateAccessToken(user);
+            var newRefreshToken = GenerateRefreshToken();
 
-        //    return new RefreshTokenResponse
-        //    {
-        //        AccessToken = newAccessToken,
-        //        RefreshToken = newRefreshToken
-        //    };
-        //}
+            return new RefreshTokenResponseDto
+            {
+                AccessToken = newAccessToken,
+                RefreshToken = newRefreshToken,
+                RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7)
+            };
+        }
     }
 }

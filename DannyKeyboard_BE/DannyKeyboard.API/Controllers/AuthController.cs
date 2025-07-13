@@ -1,4 +1,6 @@
-﻿using DannyKeyboard.Application.DTOs.User;
+﻿using DannyKeyboard.Application.DTOs.Token;
+using DannyKeyboard.Application.DTOs.User;
+using DannyKeyboard.Application.Features.Token.Commands;
 using DannyKeyboard.Application.Features.User.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +16,16 @@ namespace DannyKeyboard.API.Controllers
         {
             _mediator = mediator;
         }
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto dto)
         {
             var result = await _mediator.Send(new LoginCommand(dto));
+            return Ok(result);
+        }
+        [HttpPost("refreshToken")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequestDto dto)
+        {
+            var result = await _mediator.Send(new GenerateTokenCommand(dto));
             return Ok(result);
         }
     }

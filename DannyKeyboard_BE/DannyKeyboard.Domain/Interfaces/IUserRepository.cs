@@ -10,6 +10,8 @@ namespace DannyKeyboard.Domain.Interfaces
     public interface IUserRepository
     {
         Task<User?> GetOneByEmailAndPass(string email, string password);
-        void UpdateUser(User user);   
+        void UpdateUser(User user);
+        Task<User?> GetOneByRefreshToken(string refreshToken);
+
     }
 }
