@@ -23,7 +23,7 @@ namespace DannyKeyboard.Application.Features.Password.Commands
         {
             _unitOfWork = unitOfWork;
             _configure = configure;
-            emailSender = new EmailSender(configure);
+            emailSender = new EmailSender(_configure);
         }
         public async Task<ResponseForgotPasswordDto> Handle(ForgotPasswordCommand request, CancellationToken cancellationToken)
         {

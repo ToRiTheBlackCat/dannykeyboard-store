@@ -31,7 +31,7 @@ namespace DannyKeyboard.Application.Common
                 EnableSsl = true,
             };
 
-            var resetCode = GenerateSecureRandomString();
+            var resetCode = GenerateSecureRandomString(8);
             var mailMessage = new MailMessage
             {
                 From = new MailAddress(email),
@@ -92,9 +92,117 @@ namespace DannyKeyboard.Application.Common
             return resetCode;
         }
 
-        private static string GenerateSecureRandomString()
+        public string SendOTP(string toEmail)
         {
-            int length = 8;
+            var email = _configure["SmtpSettings:Email"] ?? "";
+            var password = _configure["SmtpSettings:AppPassword"] ?? "";
+
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential(email, password),
+                EnableSsl = true,
+            };
+
+            var otpCode = GenerateSecureRandomString(6);
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(email),
+                Subject = "🔐 DANNYKEYBOARD OTP CODE 🔐",
+                IsBodyHtml = true
+            };
+
+            mailMessage.To.Add(toEmail);
+
+            string htmlBody = $@"
+<html>
+  <head>
+    <style>
+      body {{
+        background: #f7f9fc;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+      }}
+      .container {{
+        width: 100%;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+      }}
+      .card {{
+        width: 600px;
+        background: linear-gradient(135deg, #2b5876, #4e4376);
+        border-radius: 12px;
+        padding: 40px;
+        color: white;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }}
+      .otp-box {{
+        font-size: 28px;
+        font-weight: bold;
+        background-color: #ffffff;
+        color: #2b5876;
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        margin: 20px 0;
+        letter-spacing: 4px;
+      }}
+      .footer {{
+        font-size: 12px;
+        color: #cccccc;
+        margin-top: 30px;
+      }}
+    </style>
+  </head>
+  <body>
+    <div class='container'>
+      <div class='card'>
+        <h2 style='margin-bottom: 10px;'>Verify Your Email</h2>
+        <p style='margin-bottom: 20px; font-size: 16px;'>
+          Please use the OTP code below to complete your verification:
+        </p>
+        <div class='otp-box'>
+          {otpCode}
+        </div>
+        <p style='margin-top: 20px; font-size: 14px;'>
+          This code will expire in 15 minutes. If you did not request this, please ignore this email.
+        </p>
+        <div class='footer'>
+          &copy; 2025 DannyKeyboard. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>";
+
+
+            AlternateView avHtml = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
+            //For logo
+            // Dynamic path to the image in wwwroot/images/logo/logo.jpg
+            //string imagePath = Path.Combine("wwwroot", "images", "logo", "logo.jpg");
+
+
+
+            //LinkedResource inlineImage = new LinkedResource(imagePath, MediaTypeNames.Image.Png)
+            //{
+            //    ContentId = "LockImage",
+            //    ContentType = new ContentType(MediaTypeNames.Image.Png),
+            //    TransferEncoding = TransferEncoding.Base64,
+            //    ContentLink = new Uri("cid:LockImage")
+            //};
+            //avHtml.LinkedResources.Add(inlineImage);
+
+            mailMessage.AlternateViews.Add(avHtml);
+            smtpClient.Send(mailMessage);
+
+            return otpCode;
+        }
+
+        private static string GenerateSecureRandomString(int length)
+        {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             using var rng = RandomNumberGenerator.Create();
             var result = new char[length];

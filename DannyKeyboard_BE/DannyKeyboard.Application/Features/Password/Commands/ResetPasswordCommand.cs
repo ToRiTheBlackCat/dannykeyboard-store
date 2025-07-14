@@ -10,8 +10,8 @@ namespace DannyKeyboard.Application.Features.Password.Commands
 {
     public class ResetPasswordCommand : IRequest<(bool, string)>
     {
-        public RequestResetPassword Dto {  get; set; }
-        public ResetPasswordCommand(RequestResetPassword dto)
+        public RequestResetPasswordDto Dto {  get; set; }
+        public ResetPasswordCommand(RequestResetPasswordDto dto)
         {
             Dto = dto;
         }

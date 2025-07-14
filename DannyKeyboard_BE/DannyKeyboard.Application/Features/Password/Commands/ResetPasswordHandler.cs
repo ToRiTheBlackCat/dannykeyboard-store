@@ -29,7 +29,6 @@ namespace DannyKeyboard.Application.Features.Password.Commands
 
         public async Task<(bool, string)> Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
         {
-            var response = new Object();
             try
             {
                 await _unitOfWork.BeginTransactionAsync();

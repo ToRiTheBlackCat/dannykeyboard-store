@@ -83,6 +83,8 @@ builder.Services
     .AddApplication()
     .AddInfrastructure(builder.Configuration);
 
+builder.Services.AddMemoryCache();
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<JwtAuthentication>();
 builder.Services.AddScoped<EmailSender>();

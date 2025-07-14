@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DannyKeyboard.Application.DTOs.Password
 {
-    public class RequestResetPassword
+    public class RequestResetPasswordDto
     {
         [Required]
         [EmailAddress]
