@@ -19,7 +19,7 @@ namespace DannyKeyboard.Application.Common
         {
             _configure = configure;
         }
-        public  string SendPasswordReset(string toEmail)
+        public string SendPasswordReset(string toEmail)
         {
             var email = _configure["SmtpSettings:Email"] ?? "";
             var password = _configure["SmtpSettings:AppPassword"] ?? "";
@@ -70,9 +70,8 @@ namespace DannyKeyboard.Application.Common
   </body>
 </html>";
 
-
             AlternateView avHtml = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
-
+            //For logo
             // Dynamic path to the image in wwwroot/images/logo/logo.jpg
             //string imagePath = Path.Combine("wwwroot", "images", "logo", "logo.jpg");
 
@@ -88,7 +87,6 @@ namespace DannyKeyboard.Application.Common
             //avHtml.LinkedResources.Add(inlineImage);
 
             mailMessage.AlternateViews.Add(avHtml);
-
             smtpClient.Send(mailMessage);
 
             return resetCode;

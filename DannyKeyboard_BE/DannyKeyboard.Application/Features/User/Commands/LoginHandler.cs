@@ -41,6 +41,7 @@ namespace DannyKeyboard.Application.Features.User.Commands
 
                 if (foundUser == null)
                 {
+                    responseDto.IsAuthenticated = false;
                     return responseDto;
                 }
                 else
@@ -57,6 +58,7 @@ namespace DannyKeyboard.Application.Features.User.Commands
                     await _unitOfWork.CommitTransactionAsync();
 
                     //Add data to response
+                    responseDto.IsAuthenticated = true;
                     responseDto.UserId = foundUser.UserId.Trim();
                     responseDto.RoleId = foundUser.RoleId;
                     responseDto.RoleName = foundUser.Role.RoleName.Trim();
@@ -72,6 +74,7 @@ namespace DannyKeyboard.Application.Features.User.Commands
                 Console.WriteLine(ex.ToString());
                 await _unitOfWork.RollbackTransactionAsync();
 
+                responseDto.IsAuthenticated = false;
                 return responseDto; 
             }
         }

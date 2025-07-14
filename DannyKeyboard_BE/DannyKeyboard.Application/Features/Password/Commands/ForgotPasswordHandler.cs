@@ -39,15 +39,18 @@ namespace DannyKeyboard.Application.Features.Password.Commands
                     return response;
                 }
 
+                //Create Reset code and send that to email
                 var resetCode = emailSender.SendPasswordReset(request.Email);
 
+                //Hash the Reset code and save to DB for that user
                 foundUser.ResetCode = Sha256Encoding.ComputeSHA256Hash(resetCode + _configure["SecretString"]);
                  _unitOfWork.UserRepo.UpdateUser(foundUser);
+
                 await _unitOfWork.CommitTransactionAsync();
 
+                //Response status
                 response.IsSend = true;
                 response.Message = SUCCESS;
-
                 return response;
             }
             catch (Exception ex)

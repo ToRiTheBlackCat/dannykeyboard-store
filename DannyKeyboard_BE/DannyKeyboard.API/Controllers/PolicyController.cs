@@ -42,6 +42,11 @@ namespace DannyKeyboard.API.Controllers
         [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdatePolicyDto dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var result = await _mediator.Send(new UpdatePolicyCommand(dto));
             return Ok(result);
         }

@@ -8,6 +8,7 @@ namespace DannyKeyboard.Application.DTOs.User
 {
     public class LoginResponseDto
     {
+        public bool IsAuthenticated { get; set; }
         public string? UserId { get; set; }
         public int RoleId { get; set; }
         public string? RoleName { get; set; }
