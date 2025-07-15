@@ -18,6 +18,15 @@ namespace DannyKeyboard.Infrastructure.Repositories
             _context = context;
         }
 
+        public async Task<User?> GetCustomerByUserId(string userId)
+        {
+            return await _context.Users
+                .Include(x => x.Role)
+                .Include(x => x.Customer)
+                .FirstOrDefaultAsync( x => x.UserId == userId 
+                                        && x.IsActive);
+        }
+
         public async Task<User?> GetOneByEmail(string email)
         {
             return await _context.Users

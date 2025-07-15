@@ -1,6 +1,7 @@
 ﻿using DannyKeyboard.Domain.Entities;
 using DannyKeyboard.Domain.Interfaces;
 using DannyKeyboard.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,11 @@ namespace DannyKeyboard.Infrastructure.Repositories
         public async Task InsertCustomer(Customer customer)
         {
             await _context.Customers.AddAsync(customer);
+        }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            _context.Customers.Update(customer);
         }
     }
 }
