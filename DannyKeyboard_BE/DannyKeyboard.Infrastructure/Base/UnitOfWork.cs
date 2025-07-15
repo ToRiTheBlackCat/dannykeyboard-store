@@ -20,10 +20,11 @@ namespace DannyKeyboard.Infrastructure.Base
         public IAboutUsRepository AboutUsRepo { get; }
         public IUserRepository UserRepo { get; }
         public IPolicyRepository PolicyRepo { get; }
+        public ICustomerRepository CustomerRepo { get; }
 
         #endregion
 
-        public UnitOfWork(DannyKeyboardShopDBContext context )
+        public UnitOfWork(DannyKeyboardShopDBContext context)
         {
             _context = context;
 
@@ -31,6 +32,7 @@ namespace DannyKeyboard.Infrastructure.Base
             AboutUsRepo = new AboutUsRepository(_context);
             UserRepo = new UserRepository(_context);
             PolicyRepo = new PolicyRepository(_context);
+            CustomerRepo = new CustomerRepository(_context);
             #endregion
         }
 

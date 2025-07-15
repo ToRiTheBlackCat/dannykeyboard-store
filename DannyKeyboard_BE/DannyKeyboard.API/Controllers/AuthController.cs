@@ -1,6 +1,7 @@
 ﻿using DannyKeyboard.Application.DTOs.Password;
 using DannyKeyboard.Application.DTOs.Token;
 using DannyKeyboard.Application.DTOs.User;
+using DannyKeyboard.Application.Features.Customer.Commands;
 using DannyKeyboard.Application.Features.Password.Commands;
 using DannyKeyboard.Application.Features.Token.Commands;
 using DannyKeyboard.Application.Features.User.Commands;
@@ -57,7 +58,7 @@ namespace DannyKeyboard.API.Controllers
         }
 
         [HttpPost("reset-password")]
-        public async Task<IActionResult> ResetPassword([FromBody] RequestResetPassword request)
+        public async Task<IActionResult> ResetPassword([FromBody] RequestResetPasswordDto request)
         {
             if (!ModelState.IsValid)
             {
@@ -71,6 +72,21 @@ namespace DannyKeyboard.API.Controllers
                 result.Item1,
                 result.Item2
             });
+        }
+
+        [HttpPost("customer/confirm-signup")]
+        public async Task<IActionResult> ConfirmCustomerSignUp([FromBody] CustomerSignUpRequestDto request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _mediator.Send(new CustomerSignUpCommand(request));
+
+            return result.Item1
+                ? Ok(new { result.Item1, result.Item2 })
+                : BadRequest(new { result.Item1, result.Item2 });
         }
     }
 }

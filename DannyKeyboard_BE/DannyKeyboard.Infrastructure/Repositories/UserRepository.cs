@@ -44,9 +44,28 @@ namespace DannyKeyboard.Infrastructure.Repositories
                                   && x.IsActive);
         }
 
+        public async Task InsertUser(User user)
+        {
+            user.UserId = GenerateId();
+            await _context.Users.AddAsync(user);
+        }
+
         public void UpdateUser(User user)
         {
             _context.Users.Update(user);
+        }
+        private string GenerateId()
+        {
+            if (!_context.Users.Any())
+            {
+                return "U0";
+            }
+
+            var newNumber = _context.Users
+                .Select(u => int.Parse(u.UserId.Substring(1)))
+                .ToList().Max() + 1;
+
+            return "U" + newNumber;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -8,10 +9,11 @@ using System.Net.Mime;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DannyKeyboard.Application.Common
 {
-    public  class EmailSender
+    public class EmailSender
     {
         private IConfiguration _configure;
 
@@ -135,7 +137,7 @@ namespace DannyKeyboard.Application.Common
         background: linear-gradient(135deg, #2b5876, #4e4376);
         border-radius: 12px;
         padding: 40px;
-        color: white;
+        color: white !important;
         text-align: center;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       }}
@@ -149,10 +151,15 @@ namespace DannyKeyboard.Application.Common
         border-radius: 8px;
         margin: 20px 0;
         letter-spacing: 4px;
+        min-width: 180px;
+      }}
+      h2, p {{
+        color: white !important;
+        margin: 0 0 20px 0;
       }}
       .footer {{
         font-size: 12px;
-        color: #cccccc;
+        color: #cccccc !important;
         margin-top: 30px;
       }}
     </style>
@@ -160,16 +167,12 @@ namespace DannyKeyboard.Application.Common
   <body>
     <div class='container'>
       <div class='card'>
-        <h2 style='margin-bottom: 10px;'>Verify Your Email</h2>
-        <p style='margin-bottom: 20px; font-size: 16px;'>
-          Please use the OTP code below to complete your verification:
-        </p>
+        <h2>📧 Verify Your Email</h2>
+        <p>Please use the OTP code below to complete your verification:</p>
         <div class='otp-box'>
           {otpCode}
         </div>
-        <p style='margin-top: 20px; font-size: 14px;'>
-          This code will expire in 15 minutes. If you did not request this, please ignore this email.
-        </p>
+        <p>This code will expire in 15 minutes. If you did not request this, please ignore this email.</p>
         <div class='footer'>
           &copy; 2025 DannyKeyboard. All rights reserved.
         </div>
