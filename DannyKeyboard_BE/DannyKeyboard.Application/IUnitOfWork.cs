@@ -13,6 +13,7 @@ namespace DannyKeyboard.Application
         IUserRepository UserRepo { get; }
         IPolicyRepository PolicyRepo { get; }
         ICustomerRepository CustomerRepo {  get; }
+        IStaffRepository StaffRepo { get; }
 
         Task BeginTransactionAsync();
         Task CommitTransactionAsync();

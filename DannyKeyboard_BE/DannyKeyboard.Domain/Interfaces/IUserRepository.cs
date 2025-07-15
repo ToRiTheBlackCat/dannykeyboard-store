@@ -13,6 +13,8 @@ namespace DannyKeyboard.Domain.Interfaces
         Task<User?> GetOneByRefreshToken(string refreshToken);
         Task<User?> GetOneByEmail(string email);
         Task<User?> GetCustomerByUserId(string userId);
+        Task<User?> GetStaffByUserId(string userId);
+
 
         Task InsertUser(User user);
         void UpdateUser(User user);

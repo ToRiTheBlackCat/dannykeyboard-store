@@ -53,6 +53,15 @@ namespace DannyKeyboard.Infrastructure.Repositories
                                   && x.IsActive);
         }
 
+        public async Task<User?> GetStaffByUserId(string userId)
+        {
+            return await _context.Users
+               .Include(x => x.Role)
+               .Include(x => x.Staff)
+               .FirstOrDefaultAsync(x => x.UserId == userId
+                                       && x.IsActive);
+        }
+
         public async Task InsertUser(User user)
         {
             user.UserId = GenerateId();

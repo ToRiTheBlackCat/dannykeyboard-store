@@ -18,6 +18,11 @@ namespace DannyKeyboard.Infrastructure.Repositories
             _context = context;
         }
 
+        public async Task<IEnumerable<Customer>> GetAll()
+        {
+            return await _context.Customers.ToListAsync();
+        }
+
         public async Task InsertCustomer(Customer customer)
         {
             await _context.Customers.AddAsync(customer);
