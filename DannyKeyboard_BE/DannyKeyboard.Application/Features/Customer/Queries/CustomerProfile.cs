@@ -1,16 +1,20 @@
 ﻿using DannyKeyboard.Application.DTOs.Customer;
+using DannyKeyboard.Application.DTOs.Policy;
+using DannyKeyboard.Application.Features.Customer.Commands;
+using DannyKeyboard.Application.Features.Policy.Queries;
 using MediatR;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DannyKeyboard.Application.Features.Customer.Commands
+namespace DannyKeyboard.Application.Features.Customer.Queries
 {
-    public class CustomerProfileHandler : IRequestHandler<CustomerProfileCommand, CustomerProfileResponseDto>
+    public record CustomerProfileQuery(CustomerProfileRequestDto Dto)
+        : IRequest<CustomerProfileResponseDto>;
+
+    public class CustomerProfileHandler : IRequestHandler<CustomerProfileQuery, CustomerProfileResponseDto>
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -19,7 +23,7 @@ namespace DannyKeyboard.Application.Features.Customer.Commands
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<CustomerProfileResponseDto> Handle(CustomerProfileCommand request, CancellationToken cancellationToken)
+        public async Task<CustomerProfileResponseDto> Handle(CustomerProfileQuery request, CancellationToken cancellationToken)
         {
             var response = new CustomerProfileResponseDto();
             try
@@ -46,9 +50,9 @@ namespace DannyKeyboard.Application.Features.Customer.Commands
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                await _unitOfWork.RollbackTransactionAsync();
                 return response;
             }
         }
+
     }
 }

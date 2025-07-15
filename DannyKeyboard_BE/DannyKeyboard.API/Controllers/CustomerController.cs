@@ -1,6 +1,7 @@
 ﻿using DannyKeyboard.Application.DTOs.Customer;
 using DannyKeyboard.Application.DTOs.User;
 using DannyKeyboard.Application.Features.Customer.Commands;
+using DannyKeyboard.Application.Features.Customer.Queries;
 using DannyKeyboard.Application.Features.OTP.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -26,7 +27,7 @@ namespace DannyKeyboard.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            var result = await _mediator.Send(new CustomerProfileCommand(request));
+            var result = await _mediator.Send(new CustomerProfileQuery(request));
             
             return Ok(result);
         }
