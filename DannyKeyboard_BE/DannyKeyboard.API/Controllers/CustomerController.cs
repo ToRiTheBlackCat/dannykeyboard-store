@@ -32,7 +32,7 @@ namespace DannyKeyboard.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("update-profile")]
+        [HttpPut("update-profile")]
         public async Task<IActionResult> UpdateCustomerProfile([FromBody] UpdateCustomerProfileDto request)
         {
             if (!ModelState.IsValid)
