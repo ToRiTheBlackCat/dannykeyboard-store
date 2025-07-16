@@ -1,4 +1,5 @@
 ﻿using DannyKeyboard.Application.DTOs.Customer;
+using DannyKeyboard.Application.Mappers;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -46,15 +47,8 @@ namespace DannyKeyboard.Application.Features.Customer.Commands
                     return new();
                 }
 
-                var response = new UpdateCustomerProfileDto
-                {
-                    CustomerId = updatedCustomer.Customer.CustomerId.Trim(),
-                    FullName = updatedCustomer.Customer.FullName,
-                    Address = updatedCustomer.Customer.Address,
-                    Phone = updatedCustomer.Customer.Phone,
-                    Dob = updatedCustomer.Customer.Dob
-                };
-
+                //Map data to response
+                var response = CustomerMapper.ToUpdateCustomerProfileDto(updatedCustomer);
                 return response;
             }
             catch (Exception ex)

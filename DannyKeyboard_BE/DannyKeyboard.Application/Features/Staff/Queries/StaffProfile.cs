@@ -1,5 +1,6 @@
 ﻿using DannyKeyboard.Application.DTOs.Customer;
 using DannyKeyboard.Application.DTOs.Staff;
+using DannyKeyboard.Application.Mappers;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -33,15 +34,7 @@ namespace DannyKeyboard.Application.Features.Staff.Queries
                 }
 
                 //Map data to response
-                response.StaffId = foundStaff.Staff.StaffId.Trim();
-                response.Email = foundStaff.Email;
-                response.RoleId = foundStaff.RoleId;
-                response.RoleName = foundStaff.Role.RoleName;
-                response.FullName = foundStaff.Staff.FullName;
-                response.Address = foundStaff.Staff.Address;
-                response.Phone = foundStaff.Staff.Phone;
-                response.Dob = foundStaff.Staff.Dob;
-
+                response = StaffMapper.ToStaffProfileResponseDto(foundStaff);
                 return response;
             }
             catch (Exception ex)
