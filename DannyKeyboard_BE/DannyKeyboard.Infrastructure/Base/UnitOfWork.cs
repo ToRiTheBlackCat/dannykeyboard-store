@@ -22,6 +22,7 @@ namespace DannyKeyboard.Infrastructure.Base
         public IPolicyRepository PolicyRepo { get; }
         public ICustomerRepository CustomerRepo { get; }
         public IStaffRepository StaffRepo { get; }
+        public IRoleRepository RoleRepo { get; }
 
         #endregion
 
@@ -35,6 +36,7 @@ namespace DannyKeyboard.Infrastructure.Base
             PolicyRepo = new PolicyRepository(_context);
             CustomerRepo = new CustomerRepository(_context);
             StaffRepo = new StaffRepository(_context);
+            RoleRepo = new RoleRepository(_context);
             #endregion
         }
 
