@@ -1,5 +1,6 @@
 ﻿using DannyKeyboard.Application.DTOs.Customer;
 using DannyKeyboard.Application.DTOs.Staff;
+using DannyKeyboard.Application.Features.Customer.Commands;
 using DannyKeyboard.Application.Features.Staff.Commands;
 using DannyKeyboard.Application.Features.Staff.Queries;
 using MediatR;
@@ -42,6 +43,21 @@ namespace DannyKeyboard.API.Controllers
             var result = await _mediator.Send(new UpdateStaffProfileCommand(request));
 
             return Ok(result);
+        }
+
+        [HttpPut("signup")]
+        public async Task<IActionResult> SignUpStaff([FromBody] SignUpStaffRequestDto request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _mediator.Send(new StaffSignUpCommand(request));
+
+            return result.Item1
+                ? Ok(new { result.Item1, result.Item2 })
+                : BadRequest(new { result.Item1, result.Item2 });
         }
     }
 }

@@ -21,7 +21,7 @@ namespace DannyKeyboard.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost("customer/send-otp")]
+        [HttpPost("signup/send-otp")]
         public async Task<IActionResult> SendOtpToEmail([FromBody] OtpRequestDto request)
         {
             if (!ModelState.IsValid)
