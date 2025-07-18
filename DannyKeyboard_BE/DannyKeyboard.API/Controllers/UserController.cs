@@ -35,6 +35,7 @@ namespace DannyKeyboard.API.Controllers
                 ? Ok(new { result.Item1, result.Item2 })
                 : BadRequest(new { result.Item1, result.Item2 });
         }
+
         [HttpGet("/api/staff")]
         public async Task<IActionResult> GetListStaff()
         {
@@ -42,12 +43,23 @@ namespace DannyKeyboard.API.Controllers
 
             return Ok(result);
         }
+
         [HttpGet("/api/customer")]
         public async Task<IActionResult> GetListCustomer()
         {
             var result = await _mediator.Send(new ListCustomerQuery());
 
             return Ok(result);
+        }
+
+        [HttpDelete("delete/{userId}")]
+        public async Task<IActionResult> DeleteUser([FromBody] DeleteUserRequestDto dto)
+        {
+            var result = await _mediator.Send(new DeleteUserCommand(dto));
+
+            return result.Item1
+                ? Ok(new { result.Item1, result.Item2 })
+                : BadRequest(new { result.Item1, result.Item2 });
         }
     }
 }

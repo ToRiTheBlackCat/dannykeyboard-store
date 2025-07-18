@@ -13,7 +13,6 @@ namespace DannyKeyboard.Application.Features.Password.Commands
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IConfiguration _configure;
-        private readonly EmailSender emailSender;
         private static string NOTFOUNDUSER = "Cannot find User with that email";
         private static string NOTCORRECTCODE = "Reset code is not correct";
         private static string SUCCESS = "Reset password successfully";
@@ -24,7 +23,6 @@ namespace DannyKeyboard.Application.Features.Password.Commands
         {
             _unitOfWork = unitOfWork;
             _configure = configure;
-            emailSender = new EmailSender(configure);
         }
 
         public async Task<(bool, string)> Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
