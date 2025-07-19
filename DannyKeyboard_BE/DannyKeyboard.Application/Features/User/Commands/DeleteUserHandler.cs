@@ -11,6 +11,8 @@ namespace DannyKeyboard.Application.Features.User.Commands
     {
         private readonly IUnitOfWork _unitOfWork;
         private static string NOTFOUNDUSER = "Cannot find User with that userId";
+        private static string NOTFOUNDSTAFF = "Cannot find any staff with that userId";
+        private static string NOTFOUNDCUS = "Cannot find any customer with that userId";
         private static string SUCCESS = "Delete user successfully";
         private static string FAIL = "Delete user fail";
 
@@ -30,10 +32,20 @@ namespace DannyKeyboard.Application.Features.User.Commands
                 if (request.Dto.IsStaff)
                 {
                     foundUser = await _unitOfWork.UserRepo.GetStaffByUserId(request.Dto.UserId);
+
+                    if (foundUser != null && foundUser.Staff == null)
+                    {
+                        return (false, NOTFOUNDSTAFF);
+                    }
                 }
                 else
                 {
                     foundUser = await _unitOfWork.UserRepo.GetCustomerByUserId(request.Dto.UserId);
+
+                    if (foundUser != null && foundUser.Customer == null)
+                    {
+                        return (false, NOTFOUNDCUS);
+                    }
                 }
 
                 if (foundUser == null)
