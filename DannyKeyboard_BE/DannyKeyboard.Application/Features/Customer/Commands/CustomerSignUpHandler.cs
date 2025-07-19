@@ -22,6 +22,8 @@ namespace DannyKeyboard.Application.Features.Customer.Commands
         private static string SUCCESS = "Create user successfully";
         private static string FAIL = "Create user fail";
         private static string ERROR = "Error when create new user";
+        private static string EXIST = "Already exist user with that emial. Try other email to sign up";
+
 
         public CustomerSignUpHandler(IUnitOfWork unitOfWork,
                                     IConfiguration configure,
@@ -42,6 +44,13 @@ namespace DannyKeyboard.Application.Features.Customer.Commands
                 //Valid - Register new user - customer
                 if (ValidateOtp(request.Dto.Email, request.Dto.OtpCode))
                 {
+                    //Check existed User with that email
+                    var foundUser = await _unitOfWork.UserRepo.GetOneByEmail(request.Dto.Email);
+                    if (foundUser != null)
+                    {
+                        return (false, EXIST);
+                    }
+
                     //Hash the password
                     var hashedPassword = Sha256Encoding.ComputeSHA256Hash(request.Dto.Password + _configure["SecretString"]);
 
