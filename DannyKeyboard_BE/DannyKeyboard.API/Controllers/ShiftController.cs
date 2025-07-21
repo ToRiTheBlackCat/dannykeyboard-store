@@ -38,5 +38,32 @@ namespace DannyKeyboard.API.Controllers
             var result = await _mediator.Send(new CreateShiftCommand(dto));
             return Ok(result);
         }
+
+        [HttpPut("{shiftId}")]
+        public async Task<IActionResult> UpdateShift(int shiftId, [FromBody] UpdateShiftDto dto)
+        {
+            if (shiftId != dto.ShiftId)
+            {
+                return BadRequest();
+            }
+
+            var result = await _mediator.Send(new UpdateShiftCommand(dto));
+            return Ok(new
+            {
+                IsUpdate = result.Item1,
+                Message = result.Item2
+            });
+        }
+
+        [HttpDelete("{shiftId}")]
+        public async Task<IActionResult> DeleteShift(int shiftId)
+        {
+            var result = await _mediator.Send(new DeleteShiftCommand(shiftId));
+            return Ok(new
+            {
+                IsDelete = result.Item1,
+                Message = result.Item2
+            });
+        }
     }
 }

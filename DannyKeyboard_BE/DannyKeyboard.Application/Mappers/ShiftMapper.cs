@@ -20,5 +20,16 @@ namespace DannyKeyboard.Application.Mappers
                 EndTime = dto.EndTime,
             };
         }
+
+        public static Shift ToShift(this UpdateShiftDto dto)
+        {
+            return new Shift()
+            {
+                ShiftId = dto.ShiftId,
+                ShiftName = dto.ShiftName,
+                StartTime = dto.StartTime,
+                EndTime = dto.EndTime
+            };
+        }
     }
 }
