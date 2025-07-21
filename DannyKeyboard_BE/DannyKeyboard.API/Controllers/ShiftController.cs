@@ -25,10 +25,10 @@ namespace DannyKeyboard.API.Controllers
             return Ok(result);
         }
 
-        [HttpPost("{shiftId}")]
-        public async Task<IActionResult> GetDetailOfShift([FromBody] ShiftDetailRequestDto dto)
+        [HttpGet("{shiftId}")]
+        public async Task<IActionResult> GetDetailOfShift(int shiftId)
         {
-            var result = await _mediator.Send(new GetAllShiftQuery());
+            var result = await _mediator.Send(new ShiftDetailQuery(shiftId));
             return Ok(result);
         }
 

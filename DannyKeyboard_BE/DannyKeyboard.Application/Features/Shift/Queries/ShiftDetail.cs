@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DannyKeyboard.Application.Features.Shift.Queries
 {
-    public record ShiftDetailQuery(ShiftDetailRequestDto Dto) : IRequest<Domain.Entities.Shift?>;
+    public record ShiftDetailQuery(int id) : IRequest<Domain.Entities.Shift?>;
     public class ShiftDetailHandler : IRequestHandler<ShiftDetailQuery, Domain.Entities.Shift?>
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -20,17 +20,16 @@ namespace DannyKeyboard.Application.Features.Shift.Queries
 
         public async Task<Domain.Entities.Shift?> Handle(ShiftDetailQuery request, CancellationToken cancellationToken)
         {
-            var response = new Domain.Entities.Shift();
             try
             {
-                response = await _unitOfWork.ShiftRepo.GetOne(request.Dto.ShiftId);
+                var response = await _unitOfWork.ShiftRepo.GetOne(request.id);
 
                 return response;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                return response;
+                return new Domain.Entities.Shift();
             }
         }
     }
