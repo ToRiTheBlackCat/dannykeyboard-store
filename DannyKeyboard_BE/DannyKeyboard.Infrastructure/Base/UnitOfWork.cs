@@ -24,6 +24,7 @@ namespace DannyKeyboard.Infrastructure.Base
         public IStaffRepository StaffRepo { get; }
         public IRoleRepository RoleRepo { get; }
         public IShiftRepository ShiftRepo { get; }
+        public IStaffScheduleRepository StaffScheduleRepo { get; }
 
         #endregion
 
@@ -39,6 +40,7 @@ namespace DannyKeyboard.Infrastructure.Base
             StaffRepo = new StaffRepository(_context);
             RoleRepo = new RoleRepository(_context);
             ShiftRepo = new ShiftRepository(_context);
+            StaffScheduleRepo = new StaffScheduleRepository(_context);
             #endregion
         }
 
