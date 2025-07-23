@@ -22,5 +22,12 @@ namespace DannyKeyboard.API.Controllers
             var result = await _mediator.Send(new GetAllStaffScheduleQuery());
             return Ok(result);
         }
+
+        [HttpGet("{scheduleId}")]
+        public async Task<IActionResult> GetDetailOfStaffSchedule(int scheduleId)
+        {
+            var result = await _mediator.Send(new StaffScheduleDetailQuery(scheduleId));
+            return Ok(result);
+        }
     }
 }
