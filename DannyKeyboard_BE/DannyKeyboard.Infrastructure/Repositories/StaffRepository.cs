@@ -24,6 +24,13 @@ namespace DannyKeyboard.Infrastructure.Repositories
                 .ToListAsync();
         }
 
+        public async Task<Staff?> GetOne(string staffId)
+        {
+            return await _context.Staff
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.StaffId.Equals(staffId));
+        }
+
         public async Task InsertStaff(Staff staff)
         {
             await _context.Staff.AddAsync(staff);

@@ -11,6 +11,7 @@ namespace DannyKeyboard.Domain.Interfaces
     {
         Task<IEnumerable<StaffSchedule>> GetAll();
         Task<StaffSchedule?> GetOne(int id);
+        Task<List<StaffSchedule>?> GetScheduleOfStaff(string staffId);
         Task Insert(StaffSchedule staffSchedule);
         void Update(StaffSchedule staffSchedule);
         void Delete(StaffSchedule staffSchedule);

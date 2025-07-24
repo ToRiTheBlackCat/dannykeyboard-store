@@ -44,5 +44,13 @@ namespace DannyKeyboard.Infrastructure.Repositories
         {
             _context.StaffSchedules.Remove(staffSchedule);
         }
+
+        public async Task<List<StaffSchedule>?> GetScheduleOfStaff(string staffId)
+        {
+            return await _context.StaffSchedules
+                .Where(x => x.StaffId.Equals(staffId))
+                .AsNoTracking()
+                .ToListAsync();
+        }
     }
 }

@@ -10,6 +10,8 @@ namespace DannyKeyboard.Domain.Interfaces
     public interface IStaffRepository
     {
         Task<IEnumerable<Staff>> GetAll();
+        Task<Staff?> GetOne(string staffId);
+
         Task InsertStaff(Staff staff);
         void UpdateStaff(Staff staff);
     }
