@@ -58,7 +58,7 @@ namespace DannyKeyboard.Infrastructure.Repositories
             return await _context.Users
                .Include(x => x.Role)
                .Include(x => x.Staff)
-               .FirstOrDefaultAsync(x => x.UserId == userId
+               .FirstOrDefaultAsync(x => x.UserId.Trim() == userId
                                        && x.IsActive);
         }
 

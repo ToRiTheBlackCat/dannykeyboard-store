@@ -14,8 +14,6 @@ namespace DannyKeyboard.Domain.Interfaces
         Task<User?> GetOneByEmail(string email);
         Task<User?> GetCustomerByUserId(string userId);
         Task<User?> GetStaffByUserId(string userId);
-
-
         Task InsertUser(User user);
         void UpdateUser(User user);
         
