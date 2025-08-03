@@ -23,5 +23,18 @@ namespace DannyKeyboard.Application.Mappers
                 IsPresent = dto.IsPresent
             };
         }
+
+        public static StaffSchedule ToStaffSchedule(this UpdateScheduleOfStaffDto dto, StaffSchedule foundSchedule)
+        {
+            foundSchedule.ScheduleId = dto.ScheduleId;
+            foundSchedule.StaffId = dto.StaffId;
+            foundSchedule.ShiftId = dto.ShiftId;
+            foundSchedule.Tasks = dto.Tasks;
+            foundSchedule.WorkDate = dto.WorkDate;
+            foundSchedule.IsPresent = dto.IsPresent;
+            foundSchedule.Note = dto.Note;  
+
+            return foundSchedule;
+        }
     }
 }

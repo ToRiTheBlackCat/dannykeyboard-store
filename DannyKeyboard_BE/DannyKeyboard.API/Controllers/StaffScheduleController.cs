@@ -1,7 +1,9 @@
 ﻿using DannyKeyboard.Application.DTOs.StaffSchedule;
+using DannyKeyboard.Application.Features.Shift.Commands;
 using DannyKeyboard.Application.Features.Shift.Queries;
 using DannyKeyboard.Application.Features.StaffSchedule.Commands;
 using DannyKeyboard.Application.Features.StaffSchedule.Queries;
+using DannyKeyboard.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -64,6 +66,44 @@ namespace DannyKeyboard.API.Controllers
                     IsCreated = result.Item1,
                     Message = result.Item2
                 });
+        }
+
+        [HttpPut("{scheduleId}")]
+        public async Task<IActionResult> UpdateStaffScheduleOfStaff(int scheduleId, [FromBody] UpdateScheduleOfStaffDto dto)
+        {
+            if (scheduleId != dto.ScheduleId)
+            {
+                return BadRequest("Not match scheduleId. Try valid input!");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await _mediator.Send(new UpdateScheduleForStaffCommand(scheduleId, dto));
+            return result.Item1
+                ? Ok(new
+                {
+                    IsCreated = result.Item1,
+                    Message = result.Item2
+                })
+                : BadRequest(new
+                {
+                    IsCreated = result.Item1,
+                    Message = result.Item2
+                });
+        }
+
+        [HttpDelete("{scheduleId}")]
+        public async Task<IActionResult> DeletetaffSchedule(int scheduleId)
+        {
+            var result = await _mediator.Send(new DeleteShiftCommand(shiftId));
+            return Ok(new
+            {
+                IsDelete = result.Item1,
+                Message = result.Item2
+            });
         }
     }
 }
