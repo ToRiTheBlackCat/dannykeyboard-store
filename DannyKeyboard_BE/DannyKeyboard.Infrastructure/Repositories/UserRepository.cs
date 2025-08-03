@@ -80,7 +80,7 @@ namespace DannyKeyboard.Infrastructure.Repositories
             }
 
             var newNumber = _context.Users
-                .Select(u => int.Parse(u.UserId.Substring(1)))
+                .Select(u => int.Parse(u.UserId.Trim().Substring(1)))
                 .ToList().Max() + 1;
 
             return "U" + newNumber;
