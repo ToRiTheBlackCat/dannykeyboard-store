@@ -32,6 +32,8 @@ namespace DannyKeyboard.Application.Features.Shift.Commands
                 }
 
                 _unitOfWork.ShiftRepo.Delete(foundShift);
+                await _unitOfWork.CommitTransactionAsync();
+
                 return (true, SUCCESS);
             }
             catch (Exception ex)

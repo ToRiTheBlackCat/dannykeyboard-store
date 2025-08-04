@@ -85,12 +85,12 @@ namespace DannyKeyboard.API.Controllers
             return result.Item1
                 ? Ok(new
                 {
-                    IsCreated = result.Item1,
+                    IsUpdated = result.Item1,
                     Message = result.Item2
                 })
                 : BadRequest(new
                 {
-                    IsCreated = result.Item1,
+                    IsUpdated = result.Item1,
                     Message = result.Item2
                 });
         }
@@ -98,7 +98,7 @@ namespace DannyKeyboard.API.Controllers
         [HttpDelete("{scheduleId}")]
         public async Task<IActionResult> DeletetaffSchedule(int scheduleId)
         {
-            var result = await _mediator.Send(new DeleteShiftCommand(shiftId));
+            var result = await _mediator.Send(new DeleteScheduleForStaffCommand(scheduleId));
             return Ok(new
             {
                 IsDelete = result.Item1,
