@@ -16,7 +16,6 @@ namespace DannyKeyboard.Application.Features.Shift.Commands
         private static string ERROR = "Error when update shift";
         private static string NOTFOUND = "Update fail. Not found any shift with that id";
 
-
         public UpdateShiftHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;

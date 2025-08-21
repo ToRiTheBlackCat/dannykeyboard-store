@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DannyKeyboard.Application.Features.Shift.Commands
 {
-    public class DeleteShiftCommand : IRequest<(bool,string)>
+    public class DeleteShiftCommand : IRequest<(bool, string)>
     {
         public int ShiftId { get; set; }
         public DeleteShiftCommand(int shiftId)
